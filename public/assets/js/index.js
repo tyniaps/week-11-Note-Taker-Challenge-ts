@@ -120,7 +120,7 @@ const handleRenderBtns = () => {
   show(clearBtn);
   if (!noteTitle.value.trim() && !noteText.value.trim()) {
     hide(clearBtn);
-  } else if (!noteTitle.value.trim() && !noteText.value.trim()) {
+  } else if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
   } else {
     show(saveNoteBtn);
