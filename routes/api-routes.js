@@ -1,24 +1,30 @@
-const api = require('express').Router();
-const fs = require("fs")
+const router = require('express').Router();
+const fs = require("fs");
+const path = require("path");
 
-api.get('/api/notes', (req, res) => {
+
+router.get('../api/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, ""));
+ });
+ 
+
+router.get('/api/notes', async (req, res) => {
     console.info(`${req.method} request recieved for notes input`);
-    const data = fs.readFileSync("/db/db.json", "utf8");
-
-    res.json(JSON.parse(data));
+    const data = await JSON.parse(fs.readFileSync("/db/db.json", "utf8"))
+    res.json((data));
 });
 
-api.post('/api/notes', (req, res) => {
+router.post('/api/notes', (req, res) => {
     console.info(`${req.method} request recieved to submit notes input`);
-    const data = fs.readFileSync("/db/db.json", "utf8");
+    const data = JSON.parse(fs.readFileSync("/db/db.json", "utf8"));
     const newNote = {
         title: req.body.title,
         text: req.body.text,
     };
 
     data.push(newNote);
-    fs.writeFileSync("/db/db.json",JSON.stringify(newNote));
+    fs.writeFileSync("/db/db.json",JSON.stringify(data));
     res.json(data);
 });
 
-module.exports=api
+module.exports = router;
