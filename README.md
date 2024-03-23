@@ -28,7 +28,15 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete.
 
 ![Screenshot of Note Taker Challenge](<Screenshot 2024-03-23 222214.png>)
 
-## Link to Deployed Application
+## Installation
+
+1. Clone this repository to your local PC.
+
+2. Open the cloned repository within the command line.
+
+3. Run the following commands in the terminal: "npm install",  "npm run dev", "node server.js"
+
+4. Head to your browser and type the following in the top search bar "http://localhost:3000" to open the application.
 
 
 ## Credits
